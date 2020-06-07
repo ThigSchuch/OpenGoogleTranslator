@@ -102,6 +102,11 @@ def filterCaption(update, context):
 
     update.message.reply_text(msg)
 
+# Sobre
+def about(update, context):
+    msg = "Sou totalmente OpenSource!\nQuer ajudar no meu desenvolvimento?\nAcessa o perfil do meu mestre https://github.com/ThigSchuch/OpenGoogleTranslator"
+    update.message.reply_text(msg)
+    
 def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
@@ -113,6 +118,7 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("setLang", setLang))
     dp.add_handler(CommandHandler("setReverse", setReverse))
+    dp.add_handler(CommandHandler("about", about))
     dp.add_handler(MessageHandler(Filters.text, translate))
     dp.add_handler(MessageHandler(Filters.caption, filterCaption))
 
