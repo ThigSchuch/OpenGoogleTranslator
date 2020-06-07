@@ -72,9 +72,8 @@ def start(update, context):
     person = update.effective_user.first_name
     update.message.reply_text(
                             f"""Olá {person}, tudo bem? Vou te ajudar a traduzir as coisas!
-                            \nPrimeiro, vamos arrumar a casa, digite /setLang e a sigla para definir
-                            seu idioma padrão.
-                            \nExemplo: /setLang pt""")
+                            \nPrimeiro, vamos arrumar a casa, digite `/setLang` e a sigla para definir seu idioma padrão.
+                            \nExemplo: `/setLang pt`""", parse_mode="MARKDOWN")
 
 # Comando para definir o idioma nativo
 def setLang(update, context):
@@ -84,11 +83,11 @@ def setLang(update, context):
             updateDB(update.effective_user.id, lang, "toLang")
             update.message.reply_text(f"""Certo! Seu idioma nativo é "{lang}".
                                         \nAgora defina o inverso, vou usar ela quando você digitar em seu Idioma Nativo.
-                                        \nExemplo: /setReverse en""")
+                                        \nExemplo: `/setReverse en`""", parse_mode="MARKDOWN")
         else:
             update.message.reply_text(f'Não encontrei essa língua "{lang}", você deve digitar a sigla.\nNão sabe qual? Clique aqui /langs')
     except:
-        update.message.reply_text('Você deve digitar /setLang + idioma.')
+        update.message.reply_text('Você deve digitar `/setLang + idioma.`', parse_mode="MARKDOWN")
 
 # Comando para definir o idioma reverso
 def setReverse(update, context):
@@ -101,7 +100,7 @@ def setReverse(update, context):
         else:
             update.message.reply_text(f'Não encontrei essa língua "{lang}", você deve digitar a sigla.\nNão sabe qual? Clique aqui /langs')
     except:
-        update.message.reply_text('Você deve digitar /setReverse + idioma.')
+        update.message.reply_text('Você deve digitar `/setReverse + idioma`.', parse_mode="MARKDOWN")
     
 # Qualquer texto enviado será traduzido
 def translate(update, context):
@@ -144,14 +143,14 @@ def myInfo(update, context):
 def helpCommand(update, context):
     msg = """Olá, tudo bem? Precisa de uma mãozinha?
     
-/setLang - Defina seu Idioma Nativo
-/setReverse - Usarei para traduzir quando você digitar em sua língua nativa\n
-/langs - Veja os idiomas em que consigo traduzir
-/myInfo - Quem é você? Só sei seus idiomas e ID
-/help - É esta mensagem aqui
+`/setLang` - Defina seu Idioma Nativo
+`/setReverse` - Usarei para traduzir quando você digitar em sua língua nativa\n
+`/langs` - Veja os idiomas em que consigo traduzir
+`/myInfo` - Quem é você? Só sei seus idiomas e ID
+`/help` - É esta mensagem aqui
         
 Ajude no meu desenvolvimento!\nhttps://github.com/ThigSchuch/OpenGoogleTranslator"""
-    update.message.reply_text(msg)
+    update.message.reply_text(msg, parse_mode="MARKDOWN")
     
 def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
