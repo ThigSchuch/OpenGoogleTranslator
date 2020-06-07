@@ -20,8 +20,8 @@ Abra o terminal Python e execute:
     cursor.execute("""
 	    CREATE TABLE users (
 	    userID INTEGER NOT NULL PRIMARY KEY,
-	    toLang TEXT,
-	    reverseLang TEXT);
+	    native TEXT,
+	    destination TEXT);
     """)
     conn.close()
 
