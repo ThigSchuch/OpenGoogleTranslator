@@ -8,6 +8,7 @@ Quer conferir? [@OpenGoogleTranslatorBot](https://t.me/OpenGoogleTranslatorBot)
     python-telegram-bot==12.7
 
 Clone o repositório e então execute `pip install -r requirements.txt`
+
 *SQLite3 vem com o Python 3, se você ainda usa o 2, atualize 😅
 
 ## Criando o BD
